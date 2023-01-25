@@ -29,7 +29,7 @@
                     <router-link @click="hideNav" to="/contact"
                         >Contact</router-link
                     >
-                    <router-link
+                    <!-- <router-link
                         @click="hideNav"
                         to="/cart"
                         class="desktop-cart"
@@ -49,7 +49,7 @@
                         <div class="qty" v-if="cart.length >= 1">
                             <span>{{ cart.length }}</span>
                         </div>
-                    </router-link>
+                    </router-link> -->
                     <template v-if="!user">
                         <router-link
                             @click="hideNav"
@@ -81,7 +81,7 @@
                             />
                             <span class="name"
                                 >&#128075; Hi, {{ user.first_name }}!</span
-                            >
+ >
 
                             <svg
                                 @mouseenter="showDropDown = !showDropDown"
@@ -130,7 +130,7 @@
                                             d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"
                                         />
                                     </svg>
-                                    <span>Go to Shop</span>
+                                    <span>Go to Leaseit</span>
                                 </router-link>
                                 <button
                                     @click="logout"
@@ -150,7 +150,7 @@
                                             d="M3 8.812a4.999 4.999 0 0 1 2.578-4.375l-.485-.874A6 6 0 1 0 11 3.616l-.501.865A5 5 0 1 1 3 8.812z"
                                         />
                                     </svg>
-                                    <span>Logout</span>
+                                    <span>login</span>
                                 </button>
                             </div>
                         </div>

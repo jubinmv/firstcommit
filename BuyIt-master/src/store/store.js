@@ -1,15 +1,27 @@
 import { createStore } from "vuex";
 import createPersistedState from "vuex-persistedstate";
 
+const parseJwt = (token) => {
+    var base64Url = token.split('.')[1];
+    var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    var jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function (c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+
+    return JSON.parse(jsonPayload);
+}
+
 const store = createStore({
     state: {
         user: null,
+        userInfo: null,
         cart: [],
         products: [],
     },
     mutations: {
         loginUser(state, payload) {
             state.user = payload;
+            state.userInfo = parseJwt(payload.token)
         },
         logoutUser(state) {
             state.user = null;
@@ -88,6 +100,7 @@ const store = createStore({
         }
     },
     getters: {
+        loginInfo: (state) => state.userInfo,
         subtotal: state => {
             let subtotal = 0;
             state.cart.forEach(item => {

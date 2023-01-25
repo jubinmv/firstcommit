@@ -150,6 +150,16 @@
                         <label>Phone number</label>
                     </div>
                 </div>
+                <div class="form-line">
+                    <div class="form-item">
+                        <select name="role-selector" id="role-selector" v-model="role" style="width:100%; padding: 1em" placeholder="Select role">
+                        <option value="" hidden selected>Select role</option>
+                        <option value="farmer">FARMER</option>
+                        <option value="land_owner">LAND OWNER</option>
+                        </select>
+                    </div>
+                    
+                </div>
                 <div class="checkbox">
                     <label for="checkbox1">Accepted terms and conditions</label>
                     <input
@@ -225,6 +235,7 @@ export default {
             validator2: false,
             userCreated: false,
             email_error: "",
+            role: ''
         };
     },
     methods: {
@@ -278,6 +289,7 @@ export default {
                     password: this.password,
                     password2: this.password2,
                     phone: this.phoneNumber,
+                    role: this.role
                 },
             })
                 .then((res) => {

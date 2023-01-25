@@ -1,12 +1,18 @@
 import { createRouter, createWebHistory } from "vue-router";
-import store from "@/store/store"
+import store from "@/store/store";
 import HomeView from "../views/User/HomeView.vue";
+
 const routes = [
   {
     path: "/",
     name: "home",
     component: HomeView,
   },
+  {
+    path: "/landowner",
+       name: "landowner",
+       component: () => import("../views/User/landowner.vue"),
+     },
   {
     path: '/login',
     name: 'login',
@@ -46,11 +52,12 @@ const routes = [
     name: "contact",
     component: () => import("../views/User/ContactView.vue"),
   },
-  {
-    path: "/cart",
-    name: "cart",
-    component: () => import("../views/User/CartView.vue"),
-  },
+ 
+   {
+  path: "/farmer",
+     name: "farmer",
+     component: () => import("../views/User/farmer.vue"),
+   },
   {
     path: "/checkout",
     name: "checkout",

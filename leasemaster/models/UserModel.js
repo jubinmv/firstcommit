@@ -14,7 +14,7 @@ export const getAllUser = (result) => {
 };
 // get single user
 export const getUserByPhone = (data,result) => {
-    db.query("SELECT * FROM userreg WHERE user_phone = ?",[data.user_phone], (err,results)=> {
+    db.query("SELECT * FROM userreg WHERE phone = ?",[data.phone], (err,results)=> {
         if (err){
             console.log(err);
             result(err,null);
@@ -26,7 +26,7 @@ export const getUserByPhone = (data,result) => {
 
 // get single user
 export const userLogin = (data,result) => {
-    db.query("SELECT id, user_phone,user_email, user_password FROM userreg WHERE user_phone = ? AND user_password = ?",[data.user_phone, data.password], (err,results)=> {
+    db.query("SELECT id, phone, email, role FROM userreg WHERE phone = ? AND password = ?",[data.phone, data.password], (err,results)=> {
         if (err){
             console.log(err);
             result(err,null);

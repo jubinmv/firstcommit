@@ -3,79 +3,38 @@
     <section class="login grid-center">
         <div class="login-box">
             <router-link to="/">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    fill="currentColor"
-                    class="bi bi-x-lg"
-                    viewBox="0 0 16 16"
-                >
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg"
+                    viewBox="0 0 16 16">
                     <path
-                        d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"
-                    />
+                        d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
                 </svg>
             </router-link>
             <h3>Lease-It</h3>
             <form @submit.prevent="loginUser">
-                <input
-                    type="email"
-                    v-model="email"
-                    required
-                    placeholder="Email"
-                />
+                <input type="text" v-model="email" required placeholder="Phone" />
                 <div class="form-group">
-                    <input
-                        :type="showPassword ? 'text' : 'password'"
-                        v-model="password"
-                        required
-                        placeholder="Password"
-                    />
+                    <input :type="showPassword ? 'text' : 'password'" v-model="password" required
+                        placeholder="Password" />
 
-                    <svg
-                        @click="togglePassword"
-                        v-if="showPassword"
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        class="bi bi-eye"
-                        viewBox="0 0 16 16"
-                    >
+                    <svg @click="togglePassword" v-if="showPassword" xmlns="http://www.w3.org/2000/svg" width="16"
+                        height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
                         <path
-                            d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"
-                        />
+                            d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
                         <path
-                            d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"
-                        />
+                            d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
                     </svg>
-                    <svg
-                        @click="togglePassword"
-                        v-else
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        class="bi bi-eye-slash"
-                        viewBox="0 0 16 16"
-                    >
+                    <svg @click="togglePassword" v-else xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                        fill="currentColor" class="bi bi-eye-slash" viewBox="0 0 16 16">
                         <path
-                            d="M13.359 11.238C15.06 9.72 16 8 16 8s-3-5.5-8-5.5a7.028 7.028 0 0 0-2.79.588l.77.771A5.944 5.944 0 0 1 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.134 13.134 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755-.165.165-.337.328-.517.486l.708.709z"
-                        />
+                            d="M13.359 11.238C15.06 9.72 16 8 16 8s-3-5.5-8-5.5a7.028 7.028 0 0 0-2.79.588l.77.771A5.944 5.944 0 0 1 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.134 13.134 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755-.165.165-.337.328-.517.486l.708.709z" />
                         <path
-                            d="M11.297 9.176a3.5 3.5 0 0 0-4.474-4.474l.823.823a2.5 2.5 0 0 1 2.829 2.829l.822.822zm-2.943 1.299.822.822a3.5 3.5 0 0 1-4.474-4.474l.823.823a2.5 2.5 0 0 0 2.829 2.829z"
-                        />
+                            d="M11.297 9.176a3.5 3.5 0 0 0-4.474-4.474l.823.823a2.5 2.5 0 0 1 2.829 2.829l.822.822zm-2.943 1.299.822.822a3.5 3.5 0 0 1-4.474-4.474l.823.823a2.5 2.5 0 0 0 2.829 2.829z" />
                         <path
-                            d="M3.35 5.47c-.18.16-.353.322-.518.487A13.134 13.134 0 0 0 1.172 8l.195.288c.335.48.83 1.12 1.465 1.755C4.121 11.332 5.881 12.5 8 12.5c.716 0 1.39-.133 2.02-.36l.77.772A7.029 7.029 0 0 1 8 13.5C3 13.5 0 8 0 8s.939-1.721 2.641-3.238l.708.709zm10.296 8.884-12-12 .708-.708 12 12-.708.708z"
-                        />
+                            d="M3.35 5.47c-.18.16-.353.322-.518.487A13.134 13.134 0 0 0 1.172 8l.195.288c.335.48.83 1.12 1.465 1.755C4.121 11.332 5.881 12.5 8 12.5c.716 0 1.39-.133 2.02-.36l.77.772A7.029 7.029 0 0 1 8 13.5C3 13.5 0 8 0 8s.939-1.721 2.641-3.238l.708.709zm10.296 8.884-12-12 .708-.708 12 12-.708.708z" />
                     </svg>
 
                     <template v-if="loginError">
-                        <p
-                            class="weak"
-                            v-for="(error, index) in loginError"
-                            :key="index"
-                        >
+                        <p class="weak" v-for="(error, index) in loginError" :key="index">
                             {{ error }}
                         </p>
                     </template>
@@ -85,9 +44,7 @@
                     <button-preloader v-if="userLoggedIn" />
                     <span v-else>Login</span>
                 </action-button>
-                <router-link class="link" to="/forgot-password"
-                    >Forgot Password?</router-link
-                >
+                <router-link class="link" to="/forgot-password">Forgot Password?</router-link>
             </form>
             <p>Don't have an account?</p>
             <router-link class="link" to="/signup">Sign Up</router-link>
@@ -99,13 +56,16 @@
 import ActionButton from "@/components/ActionButton.vue";
 import ButtonPreloader from "@/components/ButtonPreloader.vue";
 import MainHeader from "@/components/MainHeader.vue";
-import { mapActions } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 
 import axios from "axios";
 
 export default {
-    components: { ActionButton, ButtonPreloader,MainHeader },
+    components: { ActionButton, ButtonPreloader, MainHeader },
     name: "LoginBox",
+    computed: {
+        ...mapGetters(['loginInfo']),
+    },
     data() {
         return {
             email: "",
@@ -122,13 +82,13 @@ export default {
         },
         async loginUser() {
             // Send a POST request
-            this.$router.push('/cart')
+            // this.$router.push('/cart')
             this.userLoggedIn = true;
             await axios({
                 method: "post",
-                url: "https://thegorana.herokuapp.com/users/login/",
+                url: "http://localhost:8080/api/users/login",
                 data: {
-                    email: this.email,
+                    phone: this.email,
                     password: this.password,
                 },
             })
@@ -136,7 +96,15 @@ export default {
                     if (res.status == 200) {
                         this.set_user(res.data);
                         this.userLoggedIn = false;
-                        this.$router.push("/");
+                        const role = this.loginInfo && this.loginInfo.role ? this.loginInfo.role : 'admin'
+                        if (role === 'farmer') {
+                            this.$router.push("/farmer");
+                        } else if (role === 'land_owner') {
+                            this.$router.push("/landowner");
+                        } else if (role === 'admin') {
+                            this.$router.push("/admin");
+                        }
+
                     } else {
                         throw res;
                     }
@@ -146,8 +114,17 @@ export default {
                     this.loginError = err.response.data.non_field_errors;
                 });
         },
+        parseJwt(token) {
+            var base64Url = token.split('.')[1];
+            var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+            var jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function (c) {
+                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+            }).join(''));
+
+            return JSON.parse(jsonPayload);
+        }
     },
-    
+
 };
 </script>
 
