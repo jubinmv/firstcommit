@@ -8,7 +8,9 @@ import {
     createAccount,
     allUsers,
     userAuthentication,
-    validateToken
+    validateToken,
+    addland,
+    addlandcategory
 } from "../controllers/user.js";
 
 import {verifyToken} from "../config/jwt.js";
@@ -72,9 +74,18 @@ router.post("/api/users/login", userAuthentication);
 
 // token validation
 router.post("/api/users/validate-token", validateToken);
+// upload land
+router.post("/api/users/shop/product", addland);
+// upload Crop
+// router.post("/api/admin/shops", insertcrop);
 
+// upload landcategory
+router.post("/api/users/products/category",addlandcategory);
 // upload an image
 router.post('/api/upload', upload.single('image'), uploadImage);
+
+// token validation
+// router.post("/api/users/shops", cropat);
 
 ////////////////////////// Order ////////////////////////////////
 router.post(`/api/orders`, createOrder);

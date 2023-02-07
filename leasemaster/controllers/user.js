@@ -3,9 +3,10 @@
 import { response } from "express";
 import {
     getAllUser,
-    getUserByPhone,
+    getUserByEmail,
     userLogin,
-    insertUser
+    insertUser,
+    insertland
 } from "../models/UserModel.js";
 import {createToken, verifyToken} from '../config/jwt.js'
 
@@ -25,7 +26,7 @@ export const allUsers=(req,res)=>{
 
 // get single user
 export const showAUser = (req,res)=>{
-    getUserByPhone(req.params.email,(err,results)=> {
+    getUserByEmail(req.params.email,(err,results)=> {
         if (err) {
             res.send(err);
         }else {
@@ -37,7 +38,7 @@ export const showAUser = (req,res)=>{
 // create user
 export const createAccount=async (req,res)=>{
     const data = req.body;
-    getUserByPhone(data, (err, response) => {
+    getUserByEmail(data, (err, response) => {
         console.log('response', response)
         if (err) {
             insertUser(data,(err,results)=> {
@@ -101,7 +102,57 @@ export const validateToken=async (req,res)=>{
 };
 
 
+// add land
+export const addland=async (req,res)=>{
+    const data = req.body;
+    insertland(data,(err,results)=> {
+        if (err) {
+            console.log('error', err)
+            res.status(500).send(err);
+        }else {
+            res.send({message: 'success'});
+        }
+    });
+    };
 
 
+ // add landcategory
+export const addlandcategory=async (req,res)=>{
+    const data = req.body;
+    insertlandcategory(data,(err,results)=> {
+        if (err) {
+            console.log('error', err)
+            res.status(500).send(err);
+        }else {
+            res.send({message: 'success'});
+        }
+    });
+    };
 
+  // add Crop
+export const insertcrop=async (req,res)=>{
+    const data = req.body;
+    insertcrops(data,(err,results)=> {
+        if (err) {
+            console.log('error', err)
+            res.status(500).send(err);
+        }else {
+            res.send({message: 'success'});
+        }
+    });
+   };
+
+   // addcropcategory
+export const cropcat=async (req,res)=>{
+    const data = req.body;
+    addcropcat(data,(err,results)=> {
+        if (err) {
+            console.log('error', err)
+            res.status(500).send(err);
+        }else {
+            res.send({message: 'success'});
+        }
+    });
+    };
+               
 
