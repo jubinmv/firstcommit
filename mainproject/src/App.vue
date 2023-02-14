@@ -36,6 +36,7 @@
                   {{ item.category }}
                 </option>
               </select>
+             
             </div>
 
             
@@ -101,6 +102,8 @@
                   >Home </router-link>
                   <router-link to="/About" class="button is-light"
                   >About</router-link>
+                  <router-link to="/Guide" class="button is-light"
+                  >Guide</router-link>
                 <router-link to="/login" class="button is-light"
                   >Log in</router-link
                 >
@@ -146,13 +149,13 @@
 
     <!-- I added 'style-section' class below in order to edit it's properties in other templates, if I want.
         But, when I changed the style properties, it reflects in every other page as well. That's a problem. -->
-    <section class="gunda-jubin">
+    <section class="gunda">
       <router-view />
     </section>
 
-    <footer class="footer">
+    <!-- <footer class="footer">
       <p class="has-text-centered">Lease IT</p>
-    </footer>
+    </footer> -->
   </div>
 </template>
 
@@ -227,6 +230,10 @@ export default {
       });
     },
 
+   loadGoogleTranslate(){
+                                   new google.translate.TranslateElement("google_element");
+                                },  
+
     getProductsByCategory(item) {
       this.$router.push(`/category?category=${item.category}`)
     },
@@ -270,6 +277,8 @@ export default {
     },
   },
 };
+                            
+                                                 
 </script>
 
 <style lang="scss">
@@ -321,7 +330,7 @@ export default {
 .searchBox {
   width: 500px;
 }
-.gunda-jubin{
+.gunda{
   // display: flex;
     // align-items: center;
     // justify-content: center;

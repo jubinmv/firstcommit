@@ -3,6 +3,7 @@ import AddAdminShops from "@/modules/Admin/views/AdminShops/AddAdminShops.vue";
 import EditAdminShops from "@/modules/Admin/views/AdminShops/EditAdminShops.vue";
 import EnableAdminShops from "@/modules/Admin/views/AdminShops/EnableAdminShops.vue";
 import DisableAdminShops from "@/modules/Admin/views/AdminShops/DisableAdminShops.vue";
+import Addcrop from"@/modules/Admin/views/AdminShops/Addcrop.vue";
 
 export const adminShopRoutes = [
   {
@@ -27,6 +28,13 @@ export const adminShopRoutes = [
         name: "admin-shop-edit",
         components: {
           adminPage: EditAdminShops,
+        },
+      },
+      {
+        path: "Addcrop",
+        name: "Addcrop",
+        components: {
+          adminPage: Addcrop,
         },
       },
       {

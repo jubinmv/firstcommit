@@ -21,27 +21,27 @@
       </li>
       <li>
         <router-link
-          to="/customer/transactions"
+          to="/customer/Farmerslist"
           v-bind:class="{
-            'is-active': 'customer-transactions' == this.$route.name,
+            'is-active': 'Farmerslist' == this.$route.name,
           }"
           >Farmers</router-link
         >
       </li>
       <li>
         <router-link
-          to="/customer/log"
+          to="/customer/Landownerslist"
           v-bind:class="{
-            'is-active': 'customer-log' == this.$route.name,
+            'is-active': 'Landownerslist' == this.$route.name,
           }"
           >Landowners</router-link
         >
       </li>
       <li>
         <router-link
-          to="/customer/settings"
+          to="/customer/Land"
           v-bind:class="{
-            'is-active': 'customer-settings' == this.$route.name,
+            'is-active': 'Land' == this.$route.name,
           }"
           >View Lands</router-link
         >
@@ -49,9 +49,9 @@
      
       <li>
         <router-link
-          to="/customer/log"
+          to="/customer/Leasedlands"
           v-bind:class="{
-            'is-active': 'customer-log' == this.$route.name,
+            'is-active': 'Leasedlands' == this.$route.name,
           }"
           >Leased Lands</router-link
         >

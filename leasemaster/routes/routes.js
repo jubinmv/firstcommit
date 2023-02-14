@@ -10,7 +10,17 @@ import {
     userAuthentication,
     validateToken,
     addland,
-    addlandcategory
+    addlandcategory,
+    insertcrop,
+    cropcat,
+    getLandCategories,
+    getfarmlands,
+    getfarmer,
+    getlandowners,
+    viewadminfarmers,
+    viewadminlandowners
+    
+    
 } from "../controllers/user.js";
 
 import {verifyToken} from "../config/jwt.js";
@@ -29,6 +39,7 @@ import {
 
 import upload from "../config/multer.js";
 import { uploadImage } from "../controllers/imageupload.js";
+// import { getlands } from "../models/UserModel.js";
 
 
 
@@ -77,10 +88,13 @@ router.post("/api/users/validate-token", validateToken);
 // upload land
 router.post("/api/users/shop/product", addland);
 // upload Crop
-// router.post("/api/admin/shops", insertcrop);
+router.put("/api/users/admin/shops/Addcrop", insertcrop);
 
 // upload landcategory
-router.post("/api/users/products/category",addlandcategory);
+router.post("/api/admin/products/category",addlandcategory);
+
+// upload cropcategory
+router.post("/api/admin/shops/add",cropcat);
 // upload an image
 router.post('/api/upload', upload.single('image'), uploadImage);
 
@@ -95,6 +109,14 @@ router.get("/api/users/:userId/orders", getOrderData);
 router.post(`/api/products`, createProduct);
 router.get("/api/products/:id", getProductByIdData);
 router.get("/api/products", getProductsData);
+router.get("/api/users/lands/categories", getLandCategories);
+router.get("/api/users/lands/get", getfarmlands);
+router.get("/api/users/farmerslist/list", getfarmer);
+router.get("/api/users/landownerslist/lists", getlandowners);
+router.get("/api/users/landowner/farmerslists", viewadminfarmers);
+router.get("/api/users/landowner/landownerslists", viewadminlandowners);
+
+// router.get("/api/customer/Farmerslist", getfarmers);
 
 
 

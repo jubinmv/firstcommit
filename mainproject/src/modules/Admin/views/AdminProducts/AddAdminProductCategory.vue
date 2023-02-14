@@ -18,24 +18,7 @@
               </div>
             </div>
   
-            <div class="field is-horizontal">
-                  <div class="field-label is-normal">
-                    <label class="label">Category Image</label>
-                  </div>
-                  <div class="field-body">
-                    <div class="file is-medium">
-                      <label class="file-label">
-                        <input class="file-input" type="file" name="document" @change="documentFileSelect" />
-                        <span class="file-cta">
-                          <span class="file-icon">
-                            <i class="fas fa-upload"></i>
-                          </span>
-                          <span class="file-label"> Upload Image </span>
-                        </span>
-                      </label>
-                      </div>
-                    </div>
-                  </div>
+            
 
           <div class="field">
             <div class="control">
@@ -55,15 +38,20 @@ import axios from "axios";
 export default {
     data(){
         return{
-            categoryName: ""
+            categoryName: "",
+            Description:""
         }
     },
 
     
     methods: {
         async submitCategory(){
+          const payload = {
+            description:this.Description,
+            category:this.categoryName
+          }
             axios
-            .post(`http://localhost:8080/admin/product/cropcategory?category=${this.categoryName}`)
+            .post(`http://localhost:8080/api/admin/products/category`,payload)
             .then((response) => {
                 console.log(response);
                 alert("Successfully added the category")

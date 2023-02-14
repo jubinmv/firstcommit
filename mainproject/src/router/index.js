@@ -11,6 +11,7 @@ import Cart from '../views/Cart.vue'
 import MyAccount from '../views/MyAccount.vue'
 import Checkout from '../views/Checkout.vue'
 import Success from '../views/Success.vue'
+import Guide from '../views/Guide.vue'
 import Failure from '../views/Failure.vue'
 import UserVerificationFailed from '../views/UserVerificationFailed.vue'
 
@@ -60,6 +61,7 @@ const routes = [
     name: "Success",
     component: Success,
   },
+
   {
     path: "/cart/failure",
     name: "Failure",
@@ -101,7 +103,11 @@ const routes = [
     name: "Product",
     component: Product,
   },
-
+  {
+    path: "/Guide",
+    name: "Guide",
+    component: Guide,
+  },
   {
     path: "/location",
     name: "LocationGeo",

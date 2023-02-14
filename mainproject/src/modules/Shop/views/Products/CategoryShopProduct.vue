@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div class="page-log-in">
     <div class="columns">
       <div class="column is-4 is-offset-4">
@@ -17,4 +17,4 @@
       </div>
     </div>
   </div>
-</template>
+</template> --> 

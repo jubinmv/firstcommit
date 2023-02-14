@@ -9,6 +9,9 @@ import AddProduct from "@/modules/Shop/views/Products/AddShopProduct.vue"
 import EditProduct from "@/modules/Shop/views/Products/EditShopProduct.vue"
 import DeleteProduct from "@/modules/Shop/views/Products/DeleteShopProduct.vue"
 import ViewProduct from "@/modules/Shop/views/Products/ViewShopProduct.vue"
+import Farmerslists from "@/modules/Shop/views/Products/Farmerslists.vue"
+import Landownerslists from "@/modules/Shop/views/Products/Landownerslists.vue"
+import Postedlands from "@/modules/Shop/views/Products/Postedlands.vue"
 
 export const shopRoutes = [
   {
@@ -45,6 +48,27 @@ export const shopRoutes = [
             name: "shop-product-edit",
             components: {
               shopPage: EditProduct,
+            },
+          },
+          {
+            path: "Farmerslists",
+            name: "Farmerslists",
+            components: {
+              shopPage: Farmerslists,
+            },
+          },
+          {
+            path: "Landownerslists",
+            name: "Landownerslists",
+            components: {
+              shopPage: Landownerslists,
+            },
+          },
+          {
+            path: "Postedlands",
+            name: "Postedlands",
+            components: {
+              shopPage: Postedlands,
             },
           },
           {

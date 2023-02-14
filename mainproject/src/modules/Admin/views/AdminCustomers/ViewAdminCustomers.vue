@@ -4,9 +4,9 @@
       <tr>
         <th>Name</th>
         <th>Email</th>
+        <!-- <th>Mobile Number</th> -->
         <th>Role</th>
-        <th>Enabled</th>
-        <th>Mobile Number</th>
+        <!-- <th>Enabled</th> -->
         <th>Disable Account</th>
         <th>Enable Account</th>
       </tr>
@@ -17,8 +17,9 @@
         <td>{{ customer.fullName }}</td>
         <td>{{ customer.email }}</td>
         <td>{{ customer.role }}</td>
-        <td>{{ customer.enableStatus }}</td>
-        <td>{{ customer.mobile }}</td>
+        <!-- <td>{{ customer.enableStatus }}</td> -->
+        <!-- <td>{{ customer.mobile }}</td> -->
+       
         <td>
           <button class="delete" @click="disableAccount(customer)"></button>
         </td>
@@ -58,9 +59,8 @@ export default {
     }
   },
   mounted() {
-    console.log("hi");
     axios
-      .get("/admin/customers")
+      .get("http://localhost:8080/api/users/landowner/farmerslists")
       .then((response) => {
         this.customersDetails = response.data;
 
@@ -68,7 +68,7 @@ export default {
 
   // ------------------What is responseDetails below? ----------------------------
 
-        this.$store.commit("setAdminCustomerDetails", responseDetails);
+        // this.$store.commit("setAdminCustomerDetails", responseDetails);
 
         // const toPath = this.$route.query.to || '/cart'
 

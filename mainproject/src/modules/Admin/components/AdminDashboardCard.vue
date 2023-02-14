@@ -2,7 +2,7 @@
     <div class="tile is-parent">
     <div class="tile is-child box">
       <p class="title">{{this.data}}</p>
-      <p>Testing Data</p>
+      <p> Data</p>
     </div>
   </div>
 </template>

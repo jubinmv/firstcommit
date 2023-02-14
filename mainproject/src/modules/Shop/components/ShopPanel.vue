@@ -47,27 +47,27 @@
           </li> -->
           <li>
             <router-link
-              to="/shop/products/farmers"
+              to="/shop/products/Farmerslists"
               v-bind:class="{
-                'is-active': 'shop-product-view' == this.$route.name,
+                'is-active': 'Farmerslists' == this.$route.name,
               }"
               >View Farmers</router-link
             >
           </li>
           <li>
             <router-link
-              to="/shop/products/view"
+              to="/shop/products/Landownerslists"
               v-bind:class="{
-                'is-active': 'shop-product-view' == this.$route.name,
+                'is-active': 'Landownerslists' == this.$route.name,
               }"
               >View Landowners</router-link
             >
           </li>
           <li>
             <router-link
-              to="/shop/products/view"
+              to="/shop/products/Postedlands"
               v-bind:class="{
-                'is-active': 'shop-product-view' == this.$route.name,
+                'is-active': 'Postedlands' == this.$route.name,
               }"
               >Posted Lands</router-link
             >

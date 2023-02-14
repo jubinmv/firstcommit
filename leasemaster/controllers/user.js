@@ -6,7 +6,17 @@ import {
     getUserByEmail,
     userLogin,
     insertUser,
-    insertland
+    insertland,
+    addcropcat,
+    insertcrops,
+    insertlandcategory,
+    getlandcategory,
+    getfarmland,
+    viewfarmers,
+    viewlandowners,
+    adminfarmers,
+    adminlandowners
+
 } from "../models/UserModel.js";
 import {createToken, verifyToken} from '../config/jwt.js'
 
@@ -26,6 +36,17 @@ export const allUsers=(req,res)=>{
 
 // get single user
 export const showAUser = (req,res)=>{
+    getUserByEmail(req.params.email,(err,results)=> {
+        if (err) {
+            res.send(err);
+        }else {
+            res.json(results);
+        }
+    });
+};
+
+//get user details by user id
+export const getUserById = (req,res)=>{
     getUserByEmail(req.params.email,(err,results)=> {
         if (err) {
             res.send(err);
@@ -77,9 +98,9 @@ export const userAuthentication=async (req,res)=>{
     userLogin(data,(err,results)=> {
         console.log('login results', results)
         if (err) {
-            res.status(400).send({message: "Entered Phone Number is Not Valid"});
+            res.status(400).send({message: "Entered email  is Not Valid"});
         } else if (!results||!(results||{}).id){
-            res.status(400).send({message: "Entered Phone Number or Password is Not Valid"});
+            res.status(400).send({message: "Entered email  or Password is Not Valid"});
         } else {
             const token = createToken(results)
            res.json({token});
@@ -128,7 +149,86 @@ export const addlandcategory=async (req,res)=>{
         }
     });
     };
+ // get landcategory
+export const getLandCategories=async (req,res)=>{
+    getlandcategory((err,results)=> {
+        if (err) {
+            console.log('error', err)
+            res.status(500).send(err);
+        }else {
+            res.send(results);
+        }
+    });
+    };
+ // get lands
+ export const getfarmlands=async (req,res)=>{
+    getfarmland((err,results)=> {
+        if (err) {
+            console.log('error', err)
+            res.status(500).send(err);
+        }else {
+            console.log('error', results)
 
+            res.send(results);
+        }
+    });
+    };
+     // get farmers
+
+    export const getfarmer=async (req,res)=>{
+        viewfarmers((err,results)=> {
+            if (err) {
+                console.log('error', err)
+                res.status(500).send(err);
+            }else {
+                console.log('error', results)
+    
+                res.send(results);
+            }
+        });
+        };
+         // get admin farmers
+
+    export const viewadminfarmers=async (req,res)=>{
+        adminfarmers((err,results)=> {
+            if (err) {
+                console.log('error', err)
+                res.status(500).send(err);
+            }else {
+                console.log('error', results)
+    
+                res.send(results);
+            }
+        });
+        };
+           // get landowners
+
+    export const viewadminlandowners=async (req,res)=>{
+        adminlandowners((err,results)=> {
+            if (err) {
+                console.log('error', err)
+                res.status(500).send(err);
+            }else {
+                console.log('error', results)
+    
+                res.send(results);
+            }
+        });
+        };
+        // get landowners
+
+    export const getlandowners=async (req,res)=>{
+        viewlandowners((err,results)=> {
+            if (err) {
+                console.log('error', err)
+                res.status(500).send(err);
+            }else {
+                console.log('error', results)
+    
+                res.send(results);
+            }
+        });
+        };
   // add Crop
 export const insertcrop=async (req,res)=>{
     const data = req.body;
@@ -154,5 +254,15 @@ export const cropcat=async (req,res)=>{
         }
     });
     };
-               
-
+    
+ // get farmers
+//  export const getfarmers=async (req,res)=>{
+//     farmerslist((err,results)=> {
+//         if (err) {
+//             console.log('error', err)
+//             res.status(500).send(err);
+//         }else {
+//             res.send(results);
+//         }
+//     });
+//     };

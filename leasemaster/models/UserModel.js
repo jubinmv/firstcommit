@@ -24,6 +24,18 @@ export const getUserByEmail = (data,result) => {
     });
 };
 
+// get single user by id
+export const getUserById = (data,result) => {
+    db.query("SELECT * FROM user WHERE id = ?",[data], (err,results)=> {
+        if (err){
+            console.log(err);
+            result(err,null);
+        }else{
+            result(null,results);
+        }
+    });
+};
+
 // get single user
 export const userLogin = (data,result) => {
     db.query("SELECT id, email,fullName, role FROM user WHERE email = ? AND password = ?",[data.email, data.password], (err,results)=> {
@@ -71,7 +83,78 @@ export const insertlandcategory = (data,result) => {
         }
     });
 };
- 
+
+ // Get landcategory
+export const getlandcategory = (result) => {
+    db.query("SELECT * from landcategory", (err,results)=> {
+        if (err){
+            console.log(err);
+            result(err,null);
+        }else{
+            result(null,results);
+        }
+    });
+};
+// Get lands
+export const getfarmland = (result) => {
+    db.query("SELECT * from land", (err,results)=> {
+        if (err){
+            console.log(err);
+            result(err,null);
+        }else{
+            console.log(results)
+            result(null,results);
+        }
+    });
+};
+// Get farmers
+export const viewfarmers = (result) => {
+    db.query("SELECT * from user WHERE role = 'farmer'", (err,results)=> {
+        if (err){
+            console.log(err);
+            result(err,null);
+        }else{
+            console.log(results)
+            result(null,results);
+        }
+    });
+};
+// Get admin farmers
+export const adminfarmers = (result) => {
+    db.query("SELECT * from user WHERE role = 'farmer'", (err,results)=> {
+        if (err){
+            console.log(err);
+            result(err,null);
+        }else{
+            console.log(results)
+            result(null,results);
+        }
+    });
+};
+ // Get Admin landowners
+ export const adminlandowners = (result) => {
+    db.query("SELECT * from user WHERE role = 'land_owner'", (err,results)=> {
+        if (err){
+            console.log(err);
+            result(err,null);
+        }else{
+            console.log(results)
+            result(null,results);
+        }
+    });
+};
+ // Get landowners
+export const viewlandowners = (result) => {
+    db.query("SELECT * from user WHERE role = 'land_owner'", (err,results)=> {
+        if (err){
+            console.log(err);
+            result(err,null);
+        }else{
+            console.log(results)
+            result(null,results);
+        }
+    });
+};
 // Add Crop
 export const insertcrops = (data,result) => {
     db.query("INSERT INTO crops SET ?",data, (err,results)=> {
@@ -96,5 +179,15 @@ export const addcropcat = (data,result) => {
     });
 };
 
-
+// get farmers
+// export const farmerslist = (data,result) => {
+//     db.query("SELECT * FROM user WHERE email= ?",[data.email],(err,results)=> {
+//         if (err){
+//             console.log(err);
+//             result(err,null);
+//         }else{
+//             result(null,results[0]);
+//         }
+//     });
+// };
 

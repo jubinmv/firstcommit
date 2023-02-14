@@ -159,7 +159,7 @@ export default {
   //   };
   // },
   <!-- mounted() {
-    document.title = "Sign Up | CloudStore";
+    document.title = "Sign Up | ";
   },
   methods: { 
     submitForm() {

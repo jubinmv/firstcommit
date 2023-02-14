@@ -163,7 +163,7 @@
                 </div>
               </div>
 
-              <div class="field is-horizontal">
+              <!-- <div class="field is-horizontal">
                 <div class="field-label is-normal">
                   <label class="label">Account Status</label>
                 </div>
@@ -180,7 +180,7 @@
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> -->
             </fieldset>
           </div>
         </article>

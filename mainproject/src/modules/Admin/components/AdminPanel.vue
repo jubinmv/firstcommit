@@ -10,7 +10,7 @@
           >Admin Dashboard</router-link
         >
       </li>
-      <li>
+      <!-- <li>
         <router-link
           to="/admin/profile"
           v-bind:class="{
@@ -18,7 +18,7 @@
           }"
           >Profile</router-link
         >
-      </li>
+      </li> -->
     </ul>
 
     <ul class="menu-list">
@@ -114,9 +114,9 @@
       
       <li>
         <router-link
-          to="/admin/shops/edit"
+          to="/admin/shops/Addcrop"
           v-bind:class="{
-            'is-active': 'admin-shop-edit' == this.$route.name,
+            'is-active': 'Addcrop' == this.$route.name,
           }"
           >Add Crop</router-link
         >

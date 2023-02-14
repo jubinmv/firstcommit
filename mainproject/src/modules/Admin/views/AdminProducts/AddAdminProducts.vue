@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div class="page-log-in">
     <div class="columns">
       <div class="column is-4 is-offset-4">
@@ -29,10 +29,10 @@
             <label>Image</label>
             <div class="control">
               <input type="text" class="input" v-model="state.image" />
-              <!-- <span v-if="v$.image.$error" class="has-text-danger">
+               <span v-if="v$.image.$error" class="has-text-danger">
                   {{ v$.image.$errors[0].$message }}
                 </span> -->
-            </div>
+            <!-- </div>
           </div>
 
           <div class="field">
@@ -96,9 +96,9 @@
       </div>
     </div>
   </div>
-</template>
+</template> -->
 
-<script>
+<!-- <script>
 import axios from "axios";
 
 import { toast } from "bulma-toast";
@@ -122,75 +122,75 @@ export default {
       weight: "",
       price: "",
       increment: ""
-    });
+    }); -->
 
-    const rules = computed(() => {
-      return {
-        prodName: { required },
-        category: { required },
-        mainUnit: { required },
-        saleUnit: { required },
-        weight: { required, numeric },
-        price: { required, numeric },
-        increment: { required, numeric },
+  //   const rules = computed(() => {
+  //     return {
+  //       prodName: { required },
+  //       category: { required },
+  //       mainUnit: { required },
+  //       saleUnit: { required },
+  //       weight: { required, numeric },
+  //       price: { required, numeric },
+  //       increment: { required, numeric },
         
-      };
-    });
+  //     };
+  //   });
 
-    const v$ = useVuelidate(rules, state);
+  //   const v$ = useVuelidate(rules, state);
 
-    return {
-      state,
-      v$,
-    };
-  },
-  mounted() {},
-  methods: {
-    validateForm() {
-      this.v$.$validate();
-      if(!this.v$.$error){
-        this.submitForm()
-      }
-    },
-    async submitForm() {
-      const formData = {
-        prodName: this.state.prodName,
-        category: this.state.category,
-        image: this.state.image,
-        mainUnit: this.state.mainUnit,
-        saleUnit: this.state.saleUnit,
-        weight: this.state.weight,
-        price: this.state.price,
-        increment: this.state.increment,
-      };
+  //   return {
+  //     state,
+  //     v$,
+  //   };
+  // },
+  // mounted() {},
+  // methods: {
+  //   validateForm() {
+  //     this.v$.$validate();
+  //     if(!this.v$.$error){
+  //       this.submitForm()
+  //     }
+  //   },
+  //   async submitForm() {
+  //     const formData = {
+  //       prodName: this.state.prodName,
+  //       category: this.state.category,
+  //       image: this.state.image,
+  //       mainUnit: this.state.mainUnit,
+  //       saleUnit: this.state.saleUnit,
+  //       weight: this.state.weight,
+  //       price: this.state.price,
+  //       increment: this.state.increment,
+  //     };
 
-      await axios
-        .post("/admin/product", formData)
-        .then((response) => {
-          toast({
-            message: "New product successfully added",
-            type: "is-success",
-            dismissible: true,
-            pauseOnHover: true,
-            duration: 2000,
-            position: "bottom-right",
-          });
+  //     await axios
+  //       .post("/admin/product", formData)
+  //       .then((response) => {
+  //         toast({
+  //           message: "New product successfully added",
+  //           type: "is-success",
+  //           dismissible: true,
+  //           pauseOnHover: true,
+  //           duration: 2000,
+  //           position: "bottom-right",
+  //         }); 
 
           //   const toPath = this.$route.query.to || "/cart";
 
           //   this.$router.push(toPath);
-        })
-        .catch((error) => {
-          toast({
-              message: "Product not added, Try again",
-              type: "is-success",
-              dismissible: true,
-              pauseOnHover: true,
-              duration: 2000,
-              position: "bottom-right",
-            });
-        });
-    },
-  },
-};
-</script>
+//         })
+//         .catch((error) => {
+//           toast({
+//               message: "Product not added, Try again",
+//               type: "is-success",
+//               dismissible: true,
+//               pauseOnHover: true,
+//               duration: 2000,
+//               position: "bottom-right",
+//             });
+//         });
+//     },
+//   },
+// };
+<!-- // </script> -->

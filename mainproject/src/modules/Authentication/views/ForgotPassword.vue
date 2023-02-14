@@ -1,7 +1,7 @@
 <template>
     <section class="forgot grid-center">
         <div class="forgot-box">
-            <router-link to="/">
+            <router-link to="/ForgotPassword">
                 <i class="fas fa-times"></i>
             </router-link>
             <h3>Lease-It</h3>

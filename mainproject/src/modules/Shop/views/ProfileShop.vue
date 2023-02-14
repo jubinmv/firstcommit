@@ -67,6 +67,23 @@
                   </div>
                 </div>
               </div>
+              <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                  <label class="label">House Name</label>
+                </div>
+                <div class="field-body">
+                  <div class="field">
+                    <div class="control">
+                      <input
+                        class="input"
+                        type="text"
+                        v-model="housename"
+                        placeholder="House Name"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
 
               <div class="field is-horizontal">
                 <div class="field-label is-normal">
@@ -184,7 +201,7 @@
                 </div>
               </div>
 
-              <div class="field is-horizontal">
+              <!-- <div class="field is-horizontal">
                 <div class="field-label is-normal">
                   <label class="label">Account Status</label>
                 </div>
@@ -220,7 +237,7 @@
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> -->
 
             </fieldset>
           </div>
@@ -282,7 +299,7 @@ export default {
     return {
       formMode: "disabled",
       formModeButton: "Edit",
-      shopName: "",
+      housename: "",
       email: "",
       ownerFullName: "",
       mobile: "",
@@ -290,8 +307,8 @@ export default {
       streetName: "",
       cityName: "",
       pincode: "",
-      enableStatus: "",
-      verifyStatus: "",
+      // enableStatus: "",
+      // verifyStatus: "",
       imageUrl: "",
       documentUrl: "",
 
@@ -398,8 +415,8 @@ export default {
       axios
         .get("/user/shop")
         .then((response) => {
-          var shopData = response.data;
-          this.shopName = shopData.shopName
+          // var shopData = response.data;
+          // this.shopName = shopData.shopName
           this.email = shopData.email;
           this.ownerFullName = shopData.ownerFullName;
           this.mobile = shopData.mobile;
@@ -407,8 +424,8 @@ export default {
           this.streetName = shopData.streetName;
           this.cityName = shopData.cityName
           this.pincode = shopData.pincode
-          this.enableStatus = shopData.enableStatus
-          this.verifyStatus = shopData.verifyStatus
+          // this.enableStatus = shopData.enableStatus
+          // this.verifyStatus = shopData.verifyStatus
           this.imageUrl = shopData.imageUrl
           this.documentUrl = shopData.documentUrl;
 
@@ -442,8 +459,8 @@ export default {
           this.streetName = profileData.streetName;
           this.cityName = shopData.cityName;
           this.pincode = shopData.pincode;
-          this.enableStatus = shopData.enableStatus;
-          this.verifyStatus = shopData.verifyStatus;
+          // this.enableStatus = shopData.enableStatus;
+          // this.verifyStatus = shopData.verifyStatus;
           this.imageUrl = shopData.imageUrl;
           this.documentUrl = shopData.documentUrl;
         })

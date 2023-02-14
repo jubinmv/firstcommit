@@ -26,7 +26,7 @@
           </div>
 
           <form action="?" method="POST">
-      <div class="g-recaptcha" data-sitekey="6LcIaEckAAAAAJ2x7OKZsJysiEVQ2hyo3dFs6Rq4"></div>
+      <div class="g-recaptcha" data-sitekey="6LcIaEckAAAAAJ2x7OKZsJysiEVQ2hyo3dFs6Rq4" required></div>
       <br/>
       <!-- <input type="submit" value="Submit"> -->
     </form>
