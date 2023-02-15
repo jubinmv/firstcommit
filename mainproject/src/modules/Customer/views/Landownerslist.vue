@@ -4,8 +4,8 @@
         <tr>
           <th>Name</th>
           <th>Email</th>
-          <!-- <th>Mobile Number</th>
-          <th>Street Address</th> -->
+          <th>Mobile Number</th>
+          <!-- <th>Street Address</th> -->
           <th>House Name</th>
           <th>City</th>
 
@@ -16,6 +16,8 @@
         <tr v-for="(landowner,index) in landownersDetails" v-bind:key="index">
           <td>{{ landowner.fullName }}</td>
           <td>{{ landowner.email }}</td>
+          <td>{{ landowner.phone }}</td>
+
           <td>{{ landowner.house_name }}</td>
 
           <!-- <td>{{ customer.mobile }}</td> -->

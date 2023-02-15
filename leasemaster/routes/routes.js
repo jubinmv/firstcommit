@@ -18,7 +18,14 @@ import {
     getfarmer,
     getlandowners,
     viewadminfarmers,
-    viewadminlandowners
+    viewadminlandowners,
+    getagrilands,
+    getvfarmers,
+    getvlandowners,
+    getcrops,
+    postedlandcat,
+    postagrii,
+    postfamii
     
     
 } from "../controllers/user.js";
@@ -115,8 +122,16 @@ router.get("/api/users/farmerslist/list", getfarmer);
 router.get("/api/users/landownerslist/lists", getlandowners);
 router.get("/api/users/landowner/farmerslists", viewadminfarmers);
 router.get("/api/users/landowner/landownerslists", viewadminlandowners);
+router.get("/api/users/agrilands/agri", getagrilands);
+router.get("/api/users/farmers/getlist", getvfarmers);
+router.get("/api/users/landownerss/viewlist", getvlandowners);
+router.get("/api/users/crops/view", getcrops);
+router.get("/api/users/land/posts",postedlandcat);
+router.get("/api/users/posted/postedagri",postagrii);
+router.get("/api/users/posted/postedfarm",postfamii);
 
-// router.get("/api/customer/Farmerslist", getfarmers);
+
+
 
 
 

@@ -1,27 +1,25 @@
 <template>
-  <br>
-   <div><a href="Postedfarmland"><button style="margin-left: 12%;" class="button is-dark">Farm Lands</button></a>
-   <a href="postedagrilands"><button  style="margin-left: 26%;" class="button is-dark">Agri Lands</button></a></div>
+    <div class="galle" v-for="(pfarmlands, index) in pfarmland" :key="index">
+  
+  <img src="./px.jpeg">
+  <div class="desco">Place: {{pfarmlands.locationName}}</div>
+      <div class="desco">Extend: {{pfarmlands.extend}} Acer</div>
+      <div class="desco">Price: {{pfarmlands.price}}</div>
+      <div class="desco">Advance Amount: {{pfarmlands.advance}}</div>
+      <div><button  style="margin-left: 30%; margin-bottom: 2%;" class="button is-dark">Edit Details</button></div>
 
-  <div class="gall" v-for="(categ, index) in landCate" :key="index">
-      <a >
-          <img src="./px.jpeg">
-      </a>
-      <div class="desc">{{categ.category}}</div>
-      <div class="desc">{{categ.description}}</div>
-
+  
   </div>
-
-
-</template>
-<script>
-import axios from "axios";
-import { toast } from "bulma-toast";
-export default {
-  name: "Addcat",
+  
+  </template>
+  <script>
+  import axios from "axios";
+  import { toast } from "bulma-toast";
+  export default {
+  name: "displayland",
   data() {
       return {
-          landCate: []
+          pfarmland: []
       };
   },
   mounted() { 
@@ -31,13 +29,13 @@ export default {
       async fetchData() {
           
           await axios
-              .get("http://localhost:8080/api/users/land/posts")
+              .get("http://localhost:8080/api/users/posted/postedfarm")
               .then((response) => {
-                 this.landCate = response.data
+                 this.pfarmland = response.data
                   console.log('response',response);
-
+  
                   //   const toPath = this.$route.query.to || "/cart";
-
+  
                   //   this.$router.push(toPath);
               })
               .catch((error) => {
@@ -47,26 +45,30 @@ export default {
                       }
                   } else {
                       // this.errors.push("Something went wrong. Please try again");
-
+  
                       console.log(JSON.stringify(error));
                   }
               });
       },
   },
-};
-</script>
-<style>
-.gall {
+  };
+  </script>
+  <style>
+  .galle {
   margin: 10px;
   border: 1px solid #ccc;
   float: left;
   width: 400px;
-  height: 450px;
-}
-
-.desc {
-  padding: 20px;
+  height: 390;
+  }
+  
+  
+  
+  div.desco {
+  padding: 2px;
+  text-align:left;
+  font-weight: 600;
   color: aqua;
-  text-align: center;
-}
-</style>
+  }
+  </style>
+  

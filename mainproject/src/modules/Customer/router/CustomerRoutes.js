@@ -11,6 +11,8 @@ import Leasedlands from "@/modules/Customer/views/Leasedlands.vue";
 import Farmland from "@/modules/Customer/views/Farmland.vue";
 import Agreement from "@/modules/Customer/views/Agreement.vue";
 import pdfgen from "@/modules/Customer/views/pdfgen.vue";
+import Agriland from "@/modules/Customer/views/Agriland.vue";
+import viewcrops from "@/modules/Customer/views/viewcrops.vue";
 
 
 export const customerRoutes = [
@@ -58,6 +60,20 @@ export const customerRoutes = [
         name: "Land",
         components: {
           customerPage: Land,
+        },
+      },
+      {
+        path: "viewcrops",
+        name: "viewcrops",
+        components: {
+          customerPage: viewcrops,
+        },
+      },
+      {
+        path: "Agriland",
+        name: "Agriland",
+        components: {
+          customerPage: Agriland,
         },
       },
       {

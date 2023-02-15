@@ -1,14 +1,17 @@
 <template>
-    <br>
-     <div><a href="Farmland"><button style="margin-left: 12%;" class="button is-dark">Farm Lands</button></a>
-     <a href="Agriland"><button  style="margin-left: 26%;" class="button is-dark">Agri Lands</button></a></div>
+      <div class="galle" v-for="(lands, index) in agrilandss" :key="index">
+    
+<img src="../pxx.avif">
+<div class="desco">Place: {{lands.locationName}}</div>
+        <div class="desco">Description: {{lands.description}}</div>
+        <div class="desco">Extend: {{lands.extend}} Acer</div>
+        <div class="desco">Survey Number: {{lands.survey_number}}</div>
+        <div class="desco">Owner Name: Jubin </div>
+        <div class="desco">Price: {{lands.price}}</div>
+        <div class="desco">Advance Amount: {{lands.advance}}</div>
+        <center> <div><a href="Agreement"><button class="button is-dark" style="margin-bottom: 5px;">Lease Now</button></a></div></center>
 
-    <div class="gall" v-for="(category, index) in landCategories" :key="index">
-        <a >
-            <img src="../px.jpeg">
-        </a>
-        <div class="desc">{{category.category}}</div>
-        <div class="desc">{{category.description}}</div>
+
 
     </div>
 
@@ -21,10 +24,10 @@
 import axios from "axios";
 import { toast } from "bulma-toast";
 export default {
-    name: "Addcrop",
+    name: "displayland",
     data() {
         return {
-            landCategories: []
+            agrilandss: []
         };
     },
     mounted() { 
@@ -34,9 +37,9 @@ export default {
         async fetchData() {
             
             await axios
-                .get("http://localhost:8080/api/users/lands/categories")
+                .get("http://localhost:8080/api/users/agrilands/agri")
                 .then((response) => {
-                   this.landCategories = response.data
+                   this.agrilandss = response.data
                     console.log('response',response);
 
                     //   const toPath = this.$route.query.to || "/cart";
@@ -59,17 +62,20 @@ export default {
 };
 </script>
 <style>
-.gall {
+.galle {
     margin: 10px;
     border: 1px solid #ccc;
     float: left;
     width: 400px;
-    height: 450px;
+    height: 380;
 }
 
-.desc {
-    padding: 20px;
+
+
+div.desco {
+    padding: 2px;
+    text-align:left;
+    font-weight: 600;
     color: aqua;
-    text-align: center;
 }
 </style>

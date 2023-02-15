@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div class="columns is-centered">
     <div class="column is-narrow">
       <router-link to="/admin/view/customers">
@@ -131,4 +131,4 @@ export default {
     document.title = "Admin Panel | CloudStore";
   },
 };
-</script>
+</script> -->

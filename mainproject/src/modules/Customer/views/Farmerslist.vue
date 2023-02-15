@@ -4,7 +4,7 @@
       <tr>
         <th>Name</th>
         <th>Email</th>
-        <!-- <th>Mobile Number</th> -->
+        <th>Mobile Number</th>
         <!-- <th>Street Address</th> -->
         <th>House Name</th>
         <th>City</th>
@@ -16,6 +16,8 @@
       <tr v-for="(farmers,index) in farmersDetails" v-bind:key="index">
         <td>{{ farmers.fullName }}</td>
         <td>{{ farmers.email }}</td>
+        <td>{{ farmers.phone }}</td>
+
         <td>{{ farmers.house_name }}</td>
         <td>{{ farmers.city }}</td>
 

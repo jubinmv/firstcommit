@@ -5,17 +5,19 @@
           <th>Name</th>
           <th>Email</th>
           <th>Mobile Number</th>
-          <th>Street Address</th>
+          <th>City</th>
           <th>House Name</th>
         </tr>
       </thead>
   
       <tbody>
-        <tr v-for="customer in customersDetails" v-bind:key="customer">
-          <td>{{ customer.fullName }}</td>
-          <td>{{ customer.email }}</td>
-          <td>{{ customer.mobile }}</td>
-          
+        <tr v-for="(farm,index) in farmerDetail" v-bind:key="index">
+          <td>{{ farm.fullName }}</td>
+          <td>{{ farm.email }}</td>
+          <td>{{ farm.phone }}</td>
+          <td>{{ farm.city }}</td>
+          <td>{{ farm.house_name }}</td>
+
           
         </tr>
       </tbody>
@@ -26,41 +28,40 @@
   import axios from "axios";
   
   export default {
-    name: "CustomersDetails",
+    name: "farmerDetail",
     data() {
       return {
-        customersDetails: [],
+        farmerDetail: [],
         errors: [],
       };
     },
     methods: {
-      disableAccount(item) {
-        axios
-          .delete(`/admin/customers?deleteModel=${item.email}`)
-          .then((response) => {
-            console.log(response);
-          });
-      },
-      enableAccount(item){
-        axios
-        .patch(`/admin/customers?enableModel=${item.email}`)
-        .then((response) => {
-          console.log(response);
-        })
-      }
+      // disableAccount(item) {
+      //   axios
+      //     .delete(`/admin/customers?deleteModel=${item.email}`)
+      //     .then((response) => {
+      //       console.log(response);
+      //     });
+      // },
+      // enableAccount(item){
+      //   axios
+      //   .patch(`/admin/customers?enableModel=${item.email}`)
+      //   .then((response) => {
+      //     console.log(response);
+      //   })
+      // }
     },
     mounted() {
-      console.log("hi");
       axios
-        .get("/admin/customers")
-        .then((response) => {
-          this.customersDetails = response.data;
-  
+      .get("http://localhost:8080/api/users/farmers/getlist")
+      .then((response) => {
+        this.farmerDetail = response.data
+          console.log('response',response);
   
   
     // ------------------What is responseDetails below? ----------------------------
   
-          this.$store.commit("setAdminCustomerDetails", responseDetails);
+          // this.$store.commit("setAdminCustomerDetails", responseDetails);
   
           // const toPath = this.$route.query.to || '/cart'
   

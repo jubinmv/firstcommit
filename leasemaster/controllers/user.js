@@ -15,7 +15,14 @@ import {
     viewfarmers,
     viewlandowners,
     adminfarmers,
-    adminlandowners
+    adminlandowners,
+    getagriland,
+    vfarmers,
+    vlandowners,
+    viewcrop,
+    viewpostland,
+    ownersagriland,
+    ownersfarmland
 
 } from "../models/UserModel.js";
 import {createToken, verifyToken} from '../config/jwt.js'
@@ -160,9 +167,75 @@ export const getLandCategories=async (req,res)=>{
         }
     });
     };
- // get lands
+ // get farmlands
  export const getfarmlands=async (req,res)=>{
     getfarmland((err,results)=> {
+        if (err) {
+            console.log('error', err)
+            res.status(500).send(err);
+        }else {
+            console.log('error', results)
+
+            res.send(results);
+        }
+    });
+    };
+     // get ownerpostlands
+ export const postedlandcat=async (req,res)=>{
+    viewpostland((err,results)=> {
+        if (err) {
+            console.log('error', err)
+            res.status(500).send(err);
+        }else {
+            console.log('error', results)
+
+            res.send(results);
+        }
+    });
+    };
+// get farmlands
+export const getcrops=async (req,res)=>{
+    viewcrop((err,results)=> {
+        if (err) {
+            console.log('error', err)
+            res.status(500).send(err);
+        }else {
+            console.log('error', results)
+
+            res.send(results);
+        }
+    });
+    };
+// get ownersagrilands
+export const postagrii=async (req,res)=>{
+ ownersagriland((err,results)=> {
+        if (err) {
+            console.log('error', err)
+            res.status(500).send(err);
+        }else {
+            console.log('error', results)
+
+            res.send(results);
+        }
+    });
+    };
+/// get ownersagrilands
+export const postfamii=async (req,res)=>{
+    ownersfarmland((err,results)=> {
+           if (err) {
+               console.log('error', err)
+               res.status(500).send(err);
+           }else {
+               console.log('error', results)
+   
+               res.send(results);
+           }
+       });
+       };
+
+    // get farmlands
+ export const getagrilands=async (req,res)=>{
+    getagriland((err,results)=> {
         if (err) {
             console.log('error', err)
             res.status(500).send(err);
@@ -177,6 +250,34 @@ export const getLandCategories=async (req,res)=>{
 
     export const getfarmer=async (req,res)=>{
         viewfarmers((err,results)=> {
+            if (err) {
+                console.log('error', err)
+                res.status(500).send(err);
+            }else {
+                console.log('error', results)
+    
+                res.send(results);
+            }
+        });
+        };
+        // get farmers
+
+    export const getvfarmers=async (req,res)=>{
+        vfarmers((err,results)=> {
+            if (err) {
+                console.log('error', err)
+                res.status(500).send(err);
+            }else {
+                console.log('error', results)
+    
+                res.send(results);
+            }
+        });
+        };
+         // get landownerss
+
+    export const getvlandowners=async (req,res)=>{
+        vlandowners((err,results)=> {
             if (err) {
                 console.log('error', err)
                 res.status(500).send(err);

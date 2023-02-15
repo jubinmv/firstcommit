@@ -56,6 +56,15 @@
           >Leased Lands</router-link
         >
       </li>
+      <li>
+        <router-link
+          to="/customer/viewcrops"
+          v-bind:class="{
+            'is-active': 'viewcrops' == this.$route.name,
+          }"
+          >View Crops</router-link
+        >
+      </li>
     </ul>
   </aside>
 </template>

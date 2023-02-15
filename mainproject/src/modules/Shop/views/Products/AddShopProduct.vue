@@ -56,9 +56,8 @@
             <div class="control">
               <div class="select">
                 <select v-model="category">
-                  <option selected value="Agriland">Agri_land</option>
-                  <option value="Estatelandr">Estate_land</option>
-                  <option value="Sustainableland">Sustainable_land</option>
+                  <option selected value="Agriland">agriland</option>
+                  <option value="Estatelandr">farmland</option>
 
                 </select>
               </div>
@@ -103,7 +102,7 @@
           </div>
 
           <div class="field">
-            <label>Price per acre</label>
+            <label>Survey Number</label>
             <div class="control">
               <input type="text" class="input" v-model="weight" />
             </div>
@@ -173,6 +172,7 @@
 <script>
 import axios from "axios";
 import SimilarProductBox from "@/modules/Shop/components/SimilarProductBox.vue";
+import { toast } from "bulma-toast";
 
 export default {
   name: "AddShopDetails",
@@ -286,8 +286,8 @@ export default {
         
         extend: this.mainUnit,
         description: this.saleUnit,
-        price: this.weight,
-        totprice: this.price,
+        survey_number: this.weight,
+        // totprice: this.price,
         advance: this.stock,
         leaseperiod: this.increment,
       };

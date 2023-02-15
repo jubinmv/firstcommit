@@ -12,6 +12,10 @@ import ViewProduct from "@/modules/Shop/views/Products/ViewShopProduct.vue"
 import Farmerslists from "@/modules/Shop/views/Products/Farmerslists.vue"
 import Landownerslists from "@/modules/Shop/views/Products/Landownerslists.vue"
 import Postedlands from "@/modules/Shop/views/Products/Postedlands.vue"
+import postedagrilands from "@/modules/Shop/views/postedagrilands.vue"
+import Postedfarmland from "@/modules/Shop/views/Postedfarmland.vue"
+
+
 
 export const shopRoutes = [
   {
@@ -55,6 +59,20 @@ export const shopRoutes = [
             name: "Farmerslists",
             components: {
               shopPage: Farmerslists,
+            },
+          },
+          {
+            path: "postedagrilands",
+            name: "postedagrilands",
+            components: {
+              shopPage: postedagrilands,
+            },
+          },
+          {
+            path: "Postedfarmland",
+            name: "Postedfarmland",
+            components: {
+              shopPage: Postedfarmland,
             },
           },
           {

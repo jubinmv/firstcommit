@@ -24,12 +24,8 @@
               </span>
             </div>
           </div>
-
-          <form action="?" method="POST">
-      <div class="g-recaptcha" data-sitekey="6LcIaEckAAAAAJ2x7OKZsJysiEVQ2hyo3dFs6Rq4" required></div>
-      <br/>
-      <!-- <input type="submit" value="Submit"> -->
-    </form>
+<form>          <div class="g-recaptcha" data-sitekey="6LcTVn0kAAAAAPisr9_hgsq_wAYnAHXmZhPwgUjQ"></div>
+</form>
 
 
           <!-- <div class="notification is-danger" v-if="errors.length">
@@ -117,7 +113,6 @@ export default {
       var s = document.createElement("script");
       s.type = "text/javascript";
       s.async = true;
-      s.src = "https://www.google.com/recaptcha/api.js";
       var h = document.getElementsByTagName("head")[0];
       h.appendChild(s);
 

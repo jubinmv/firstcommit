@@ -95,9 +95,9 @@ export const getlandcategory = (result) => {
         }
     });
 };
-// Get lands
+// Get farmlands
 export const getfarmland = (result) => {
-    db.query("SELECT * from land", (err,results)=> {
+    db.query("SELECT * from land WHERE category = 'farmland'", (err,results)=> {
         if (err){
             console.log(err);
             result(err,null);
@@ -107,8 +107,83 @@ export const getfarmland = (result) => {
         }
     });
 };
+// Get farmlands
+export const getagriland = (result) => {
+    db.query("SELECT * from land WHERE category ='agriland'", (err,results)=> {
+        if (err){
+            console.log(err);
+            result(err,null);
+        }else{
+            console.log(results)
+            result(null,results);
+        }
+    });
+};
+// // Get ownersfarmlands
+export const ownersagriland = (result) => {
+    db.query("SELECT * from land WHERE category ='agriland'", (err,results)=> {
+        if (err){
+            console.log(err);
+            result(err,null);
+        }else{
+            console.log(results)
+            result(null,results);
+        }
+    });
+};
+// // Get ownersfarmlands
+export const ownersfarmland = (result) => {
+    db.query("SELECT * from land WHERE category ='farmland'", (err,results)=> {
+        if (err){
+            console.log(err);
+            result(err,null);
+        }else{
+            console.log(results)
+            result(null,results);
+        }
+    });
+};
+
 // Get farmers
 export const viewfarmers = (result) => {
+    db.query("SELECT * from user WHERE role = 'farmer'", (err,results)=> {
+        if (err){
+            console.log(err);
+            result(err,null);
+        }else{
+            console.log(results)
+            result(null,results);
+        }
+    });
+};
+// Get ownerpostland
+export const viewpostland = (result) => {
+    db.query("SELECT * from landcategory", (err,results)=> {
+        if (err){
+            console.log(err);
+            result(err,null);
+        }else{
+            console.log(results)
+            result(null,results);
+        }
+    });
+};
+
+// Get crops
+export const viewcrop = (result) => {
+    db.query("SELECT * from crops", (err,results)=> {
+        if (err){
+            console.log(err);
+            result(err,null);
+        }else{
+            console.log(results)
+            result(null,results);
+        }
+    });
+};
+
+// Get landownerfarmers
+export const vfarmers = (result) => {
     db.query("SELECT * from user WHERE role = 'farmer'", (err,results)=> {
         if (err){
             console.log(err);
@@ -133,6 +208,18 @@ export const adminfarmers = (result) => {
 };
  // Get Admin landowners
  export const adminlandowners = (result) => {
+    db.query("SELECT * from user WHERE role = 'land_owner'", (err,results)=> {
+        if (err){
+            console.log(err);
+            result(err,null);
+        }else{
+            console.log(results)
+            result(null,results);
+        }
+    });
+};
+ // Get Admin landowners
+ export const vlandowners = (result) => {
     db.query("SELECT * from user WHERE role = 'land_owner'", (err,results)=> {
         if (err){
             console.log(err);

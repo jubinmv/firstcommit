@@ -1,14 +1,18 @@
 <template>
     <br>
-     <div><a href="Farmland"><button style="margin-left: 12%;" class="button is-dark">Farm Lands</button></a>
-     <a href="Agriland"><button  style="margin-left: 26%;" class="button is-dark">Agri Lands</button></a></div>
 
-    <div class="gall" v-for="(category, index) in landCategories" :key="index">
-        <a >
-            <img src="../px.jpeg">
-        </a>
-        <div class="desc">{{category.category}}</div>
-        <div class="desc">{{category.description}}</div>
+    <div class="galle" v-for="(cropss, index) in viewcrop" :key="index">
+    
+<img src="../rs1.jpg">
+        
+        <div class="desco">Crop Name: {{cropss.cropname}}</div>
+        <div class="desco">Description: {{cropss.description}}</div>
+        <div class="desco">Soil Needed: {{cropss.soil_type}} Acer</div>
+        <div class="desco">Climate Needed: {{cropss.climate}}</div>
+        <div class="desco">Temperature Needed: {{cropss.temperature}}</div>
+        <div class="desco">Harvesting Time: {{cropss.harvesting_time}}</div>
+        <div class="desco">Price: {{cropss.price}}</div>
+
 
     </div>
 
@@ -21,10 +25,10 @@
 import axios from "axios";
 import { toast } from "bulma-toast";
 export default {
-    name: "Addcrop",
+    name: "displaycrop",
     data() {
         return {
-            landCategories: []
+            viewcrop: []
         };
     },
     mounted() { 
@@ -34,9 +38,9 @@ export default {
         async fetchData() {
             
             await axios
-                .get("http://localhost:8080/api/users/lands/categories")
+                .get("http://localhost:8080/api/users/crops/view")
                 .then((response) => {
-                   this.landCategories = response.data
+                   this.viewcrop = response.data
                     console.log('response',response);
 
                     //   const toPath = this.$route.query.to || "/cart";
@@ -59,17 +63,20 @@ export default {
 };
 </script>
 <style>
-.gall {
+.galle {
     margin: 10px;
     border: 1px solid #ccc;
     float: left;
     width: 400px;
-    height: 450px;
+    height: 380;
 }
 
-.desc {
-    padding: 20px;
+
+
+div.desco {
+    padding: 5px;
+    text-align:left;
+    font-weight: 600;
     color: aqua;
-    text-align: center;
 }
 </style>
