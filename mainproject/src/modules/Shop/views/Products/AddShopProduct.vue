@@ -15,7 +15,7 @@
                 @click="hideSimilarLands"
               ></button>
             </header>
-
+<!-- 
             <section class="modal-card-body">
               <div class="columns is-multiline">
                 <SimilarProductBox
@@ -24,7 +24,7 @@
                   v-bind:product="product"
                 />
               </div>
-            </section>
+            </section> -->
 
             <!-- <footer class="modal-card-foot">
               <button class="button is-success">Save changes</button>
@@ -34,10 +34,10 @@
         </div>
 
         <form @submit.prevent="submitForm">
-          <label>Location Name</label>
           <div class="field has-addons">
-            <div class="control is-expanded">
-              <input type="text" class="input" v-model="LandName" />
+            <div class="control is-expanded" >
+
+              <input type="text" class="input" placeholder="Location Name" v-model="LandName" required/>
             </div>
             <!-- <div class="control">
               <a class="button is-info" @click="showSimilarLandss"> Check </a>
@@ -52,10 +52,12 @@
           </div> -->
 
           <div class="field">
-            <label>Category</label>
             <div class="control">
-              <div class="select">
-                <select v-model="category">
+              <div class="select" >
+                
+                <select v-model="category" Category required>
+                  <option value="" disabled selected hidden>Category</option>
+
                   <option selected value="Agriland">agriland</option>
                   <option value="Estatelandr">farmland</option>
 
@@ -63,9 +65,8 @@
               </div>
             </div>
           </div>
-
+        
           <div class="field">
-            <label>Image</label>
             <!-- <div class="control">
               <input type="text" class="input" v-model="image" />
             </div> -->
@@ -76,7 +77,7 @@
                   type="file"
                   name="resume"
                   @change="imageFileSelect"
-                />
+                  required/>
                 <span class="file-cta">
                   <span class="file-icon">
                     <i class="fas fa-upload"></i>
@@ -88,47 +89,47 @@
           </div>
 
           <div class="field">
-            <label>Extension of Land</label>
             <div class="control">
-              <input type="text" class="input" v-model="mainUnit" />
+              <input type="text" class="input" placeholder="Extension Of Land" v-model="mainUnit" required/>
+            </div>
+          </div>
+          <div class="field">
+            <div class="control">
+              <input type="text" class="input" placeholder="Price Per Acer" v-model="pprice" required />
+            </div>
+          </div>
+          <div class="field">
+            <div class="control">
+              <input type="text" class="input" placeholder="Description" v-model="saleUnit" required/>
             </div>
           </div>
 
           <div class="field">
-            <label>Description</label>
             <div class="control">
-              <input type="text" class="input" v-model="saleUnit" />
+              <input type="text" class="input" placeholder="Survey Number" v-model="weight" required/>
             </div>
           </div>
 
           <div class="field">
-            <label>Survey Number</label>
+            
             <div class="control">
-              <input type="text" class="input" v-model="weight" />
+              <input type="text" class="input" placeholder="Total Price" v-model="price" required/>
             </div>
           </div>
 
           <div class="field">
-            <label>Total Price</label>
             <div class="control">
-              <input type="text" class="input" v-model="price" />
+              <input type="text" class="input" placeholder="Advance Payment Amount" v-model="stock" required />
             </div>
           </div>
 
           <div class="field">
-            <label>Advance Payment Amount</label>
             <div class="control">
-              <input type="text" class="input" v-model="stock" />
+              <input type="text" class="input" placeholder="Lease Period" v-model="increment" required/>
             </div>
           </div>
 
-          <div class="field">
-            <label>Lease Period</label>
-            <div class="control">
-              <input type="text" class="input" v-model="increment" />
-            </div>
-          </div>
-
+         
 
            
 
@@ -188,7 +189,7 @@ export default {
       weight: "",
       price: "",
       increment: "",
-
+pprice:"",
       productImage: "",
       errors: [],
       categories: [],
@@ -287,7 +288,7 @@ export default {
         extend: this.mainUnit,
         description: this.saleUnit,
         survey_number: this.weight,
-        // totprice: this.price,
+        price_per_acer: this.pprice,
         advance: this.stock,
         leaseperiod: this.increment,
       };

@@ -21,6 +21,7 @@
     "vue": "^3.2.13",
     "vue-browser-geolocation": "^1.8.0",
     "vue-html2pdf": "^1.8.0",
+    "vue-recaptcha": "^2.0.3",
     "vue-router": "^4.0.3",
     "vuelidate": "^0.7.7",
     "vuex": "^4.0.0"

@@ -24,8 +24,8 @@
               </span>
             </div>
           </div>
-<form>          <div class="g-recaptcha" data-sitekey="6LcTVn0kAAAAAPisr9_hgsq_wAYnAHXmZhPwgUjQ"></div>
-</form>
+          <vue-recaptcha sitekey="6LcTVn0kAAAAAPisr9_hgsq_wAYnAHXmZhPwgUjQ" ></vue-recaptcha>
+
 
 
           <!-- <div class="notification is-danger" v-if="errors.length">
@@ -64,9 +64,13 @@ import {
   helpers,
 } from "@vuelidate/validators";
 import { reactive, computed } from "vue";
+import { VueRecaptcha } from 'vue-recaptcha';
 
+  
 export default {
   name: "LogIn",
+  components: { VueRecaptcha },
+
   // data() {
   //   return {
   //     email: "",
