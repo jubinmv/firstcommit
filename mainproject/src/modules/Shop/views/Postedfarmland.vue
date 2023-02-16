@@ -6,7 +6,7 @@
       <div class="desco">Extend: {{pfarmlands.extend}} Acer</div>
       <div class="desco">Price: {{pfarmlands.price}}</div>
       <div class="desco">Advance Amount: {{pfarmlands.advance}}</div>
-      <div><button  style="margin-left: 30%; margin-bottom: 2%;" class="button is-dark">Edit Details</button></div>
+      <div><a href="Postedfarmlandedit"><button  style="margin-left: 30%; margin-bottom: 2%;" class="button is-dark">Edit Details</button></a></div>
 
   
   </div>
