@@ -8,8 +8,8 @@
         <!-- <th>Enabled</th> -->
         <!-- <th>Address</th> -->
         <!-- <th>Mobile Number</th> -->
-        <th>Disable Account</th>
-        <th>Enable Account</th>
+        <!-- <th>Disable Account</th>
+        <th>Enable Account</th> -->
       </tr>
     </thead>
 
@@ -21,10 +21,10 @@
         <!-- <td> <a v-bind:href="shop.documentUrl" target="_blank">View Document</a> </td> -->
         <!-- <td>{{ shop.enableStatus }}</td> -->
         <!-- <td>{{ shop.mobile }}</td> -->
-        <td><button class="delete" @click="disableAccount(shop)"></button></td>
+        <!-- <td><button class="delete" @click="disableAccount(shop)"></button></td>
         <td>
           <button class="button is-primary" @click="enableAccount(shop)">Enable</button>
-        </td>
+        </td> -->
       </tr>
     </tbody>
   </table>

@@ -65,6 +65,24 @@
           >View Crops</router-link
         >
       </li>
+      <li>
+        <router-link
+          to="/customer/wishlist"
+          v-bind:class="{
+            'is-active': 'wishlist' == this.$route.name,
+          }"
+          >Add wishlist</router-link
+        >
+      </li>
+      <li>
+      <router-link
+          to="/customer/mywishes"
+          v-bind:class="{
+            'is-active': 'mywishes' == this.$route.name,
+          }"
+          >View wishlist</router-link
+        >
+      </li>
     </ul>
   </aside>
 </template>

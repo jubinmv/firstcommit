@@ -413,7 +413,7 @@ export default {
 
     async getProfile() {
       axios
-        .get("/user/shop")
+        .get("http://localhost:8080/api/users/profiles/editview")
         .then((response) => {
           // var shopData = response.data;
           // this.shopName = shopData.shopName
@@ -424,10 +424,8 @@ export default {
           this.streetName = shopData.streetName;
           this.cityName = shopData.cityName
           this.pincode = shopData.pincode
-          // this.enableStatus = shopData.enableStatus
-          // this.verifyStatus = shopData.verifyStatus
           this.imageUrl = shopData.imageUrl
-          this.documentUrl = shopData.documentUrl;
+          // this.documentUrl = shopData.documentUrl;
 
         })
         .catch((error) => {
@@ -442,7 +440,7 @@ export default {
         imageUrl: this.imageUrl,
         documentUrl: this.documentUrl,
         ownerFullName: this.ownerFullName,
-        streetName: this.streetName,
+        street: this.streetName,
         cityName: this.cityName,
         pincode: this.pincode
       };

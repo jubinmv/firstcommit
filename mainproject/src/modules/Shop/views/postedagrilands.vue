@@ -6,7 +6,7 @@
       <div class="desco">Extend: {{pagrilands.extend}} Acer</div>
       <div class="desco">Price: {{pagrilands.price}}</div>
       <div class="desco">Advance Amount: {{pagrilands.advance}}</div>
-      <div><button  style="margin-left: 30%; margin-bottom: 2%;" class="button is-dark">Edit Details</button></div>
+      <div><a href="Postedagrilandedit"><button  style="margin-left: 30%; margin-bottom: 2%;" class="button is-dark">Edit Details</button></a></div>
 
   
   </div>

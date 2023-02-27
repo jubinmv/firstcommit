@@ -22,7 +22,9 @@ import {
     viewcrop,
     viewpostland,
     ownersagriland,
-    ownersfarmland
+    ownersfarmland,
+    insertwishland,
+    getwishlands
 
 } from "../models/UserModel.js";
 import {createToken, verifyToken} from '../config/jwt.js'
@@ -143,6 +145,18 @@ export const addland=async (req,res)=>{
     });
     };
 
+// add wishland
+export const addwishland=async (req,res)=>{
+    const data = req.body;
+    insertwishland(data,(err,results)=> {
+        if (err) {
+            console.log('error', err)
+            res.status(500).send(err);
+        }else {
+            res.send({message: 'success'});
+        }
+    });
+    };
 
  // add landcategory
 export const addlandcategory=async (req,res)=>{
@@ -167,6 +181,17 @@ export const getLandCategories=async (req,res)=>{
         }
     });
     };
+     // get wishland
+    export const wishlist=async (req,res)=>{
+        getwishlands((err,results)=> {
+            if (err) {
+                console.log('error', err)
+                res.status(500).send(err);
+            }else {
+                res.send(results);
+            }
+        });
+        };
  // get farmlands
  export const getfarmlands=async (req,res)=>{
     getfarmland((err,results)=> {

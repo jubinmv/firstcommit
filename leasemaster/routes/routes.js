@@ -25,7 +25,10 @@ import {
     getcrops,
     postedlandcat,
     postagrii,
-    postfamii
+    postfamii,
+    addwishland,
+    wishlist
+    // viewprofiledetails
     
     
 } from "../controllers/user.js";
@@ -129,6 +132,12 @@ router.get("/api/users/crops/view", getcrops);
 router.get("/api/users/land/posts",postedlandcat);
 router.get("/api/users/posted/postedagri",postagrii);
 router.get("/api/users/posted/postedfarm",postfamii);
+router.post("/api/users/customer/wishlist",addwishland);
+router.get("/api/users/customer/wishlists/mywish",wishlist);
+
+
+// router.get("/api/users/profiles/editview",viewprofiledetails);
+
 
 
 

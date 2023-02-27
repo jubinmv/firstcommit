@@ -15,6 +15,7 @@ import Postedlands from "@/modules/Shop/views/Products/Postedlands.vue"
 import postedagrilands from "@/modules/Shop/views/postedagrilands.vue"
 import Postedfarmland from "@/modules/Shop/views/Postedfarmland.vue"
 import Postedfarmlandedit from "@/modules/Shop/views/Postedfarmlandedit.vue"
+import Postedagrilandedit from "@/modules/Shop/views/Postedagrilandedit.vue"
 
 
 
@@ -74,6 +75,13 @@ export const shopRoutes = [
             name: "Postedfarmlandedit",
             components: {
               shopPage: Postedfarmlandedit,
+            },
+          },
+          {
+            path: "Postedagrilandedit",
+            name: "Postedagrilandedit",
+            components: {
+              shopPage: Postedagrilandedit,
             },
           },
           {

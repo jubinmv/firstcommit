@@ -71,7 +71,17 @@ export const insertland = (data,result) => {
         }
     });
 };
-
+// Add wishlist
+export const insertwishland = (data,result) => {
+    db.query("INSERT INTO wishland SET ?",data, (err,results)=> {
+        if (err){
+            console.log(err);
+            result(err,null);
+        }else{
+            result(null,results);
+        }
+    });
+};
  // Add landcategory
 export const insertlandcategory = (data,result) => {
     db.query("INSERT INTO landcategory SET ?",data, (err,results)=> {
@@ -87,6 +97,17 @@ export const insertlandcategory = (data,result) => {
  // Get landcategory
 export const getlandcategory = (result) => {
     db.query("SELECT * from landcategory", (err,results)=> {
+        if (err){
+            console.log(err);
+            result(err,null);
+        }else{
+            result(null,results);
+        }
+    });
+};
+ // Get wishlands
+ export const getwishlands = (result) => {
+    db.query("SELECT * from wishland", (err,results)=> {
         if (err){
             console.log(err);
             result(err,null);

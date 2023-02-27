@@ -7,8 +7,8 @@
         <!-- <th>Mobile Number</th> -->
         <th>Role</th>
         <!-- <th>Enabled</th> -->
-        <th>Disable Account</th>
-        <th>Enable Account</th>
+        <!-- <th>Disable Account</th>
+        <th>Enable Account</th> -->
       </tr>
     </thead>
 
@@ -20,12 +20,12 @@
         <!-- <td>{{ customer.enableStatus }}</td> -->
         <!-- <td>{{ customer.mobile }}</td> -->
        
-        <td>
+        <!-- <td>
           <button class="delete" @click="disableAccount(customer)"></button>
         </td>
         <td>
           <button class="button is-primary" @click="enableAccount(customer)">Enable</button>
-        </td>
+        </td> -->
       </tr>
     </tbody>
   </table>

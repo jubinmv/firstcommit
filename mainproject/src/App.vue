@@ -230,9 +230,7 @@ export default {
       });
     },
 
-   loadGoogleTranslate(){
-                                   new google.translate.TranslateElement("google_element");
-                                },  
+  
 
     getProductsByCategory(item) {
       this.$router.push(`/category?category=${item.category}`)

@@ -13,6 +13,8 @@ import Agreement from "@/modules/Customer/views/Agreement.vue";
 import pdfgen from "@/modules/Customer/views/pdfgen.vue";
 import Agriland from "@/modules/Customer/views/Agriland.vue";
 import viewcrops from "@/modules/Customer/views/viewcrops.vue";
+import wishlist from "@/modules/Customer/views/wishlist.vue";
+import mywishes from "@/modules/Customer/views/mywishes.vue";
 
 
 export const customerRoutes = [
@@ -63,12 +65,29 @@ export const customerRoutes = [
         },
       },
       {
+        path: "wishlist",
+        name: "wishlist",
+        components: {
+          customerPage: wishlist,
+        },
+      },
+     
+
+      {
         path: "viewcrops",
         name: "viewcrops",
         components: {
           customerPage: viewcrops,
         },
       },
+      {
+        path: "mywishes",
+        name: "mywishes",
+        components: {
+          customerPage: mywishes,
+        },
+      },
+
       {
         path: "Agriland",
         name: "Agriland",
