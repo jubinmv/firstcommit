@@ -7,7 +7,7 @@
           v-bind:class="{
             'is-active': 'customer-dashboard' == this.$route.name,
           }"
-          > Farmers Dashboard</router-link
+          > Farmers  Dashboard</router-link
         >
       </li>
       <li>
@@ -127,7 +127,5 @@ export default {
 .section-main-contents {
   margin-left: 30px;
 }
-/* .style-section{
-        padding: 0px;
-    } */
+
 </style>

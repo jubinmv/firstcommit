@@ -49,6 +49,7 @@ import {
 
 import upload from "../config/multer.js";
 import { uploadImage } from "../controllers/imageupload.js";
+import {createRazorpayOrder} from '../controllers/razorpay.js'
 // import { getlands } from "../models/UserModel.js";
 
 
@@ -134,6 +135,11 @@ router.get("/api/users/posted/postedagri",postagrii);
 router.get("/api/users/posted/postedfarm",postfamii);
 router.post("/api/users/customer/wishlist",addwishland);
 router.get("/api/users/customer/wishlists/mywish",wishlist);
+
+
+
+// Razor pay order
+router.post("/api/razor-pay/order", createRazorpayOrder);
 
 
 // router.get("/api/users/profiles/editview",viewprofiledetails);

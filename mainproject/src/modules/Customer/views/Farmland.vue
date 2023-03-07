@@ -1,24 +1,20 @@
 <template>
-        <div class="galle" v-for="(land, index) in farmlands" :key="index">
-    
-<img src="../px.jpeg">
-<div class="desco">Place: {{land.locationName}}</div>
-        <div class="desco">Description: {{land.description}}</div>
-        <div class="desco">Extend: {{land.extend}} Acer</div>
-        <div class="desco">Price: {{land.price}}</div>
-        <div class="desco">Survey Number: {{land.survey_number}}</div>
+    <div class="galle" v-for="(land, index) in farmlands" :key="index">
+
+        <img src="../px.jpeg">
+        <div class="desco">Place: {{ land.locationName }}</div>
+        <div class="desco">Description: {{ land.description }}</div>
+        <div class="desco">Extend: {{ land.extend }} Acer</div>
+        <div class="desco">Price: {{ land.price }}</div>
+        <div class="desco">Survey Number: {{ land.survey_number }}</div>
         <div class="desco">Owner Name: Jubin </div>
-        <div class="desco">Advance Amount: {{land.advance}}</div>
-        <center> <button class="button is-dark" @click="payment()" style="margin-bottom: 5px;">Lease Now</button></center>
+        <div class="desco">Advance Amount: {{ land.advance }}</div>
+        <button class="button is-dark" @click="createOrder()" style="margin-bottom: 5px;  margin-left: 50px">Lease Now</button>
+        <target<button @click="loadReactWebsite">Load React Website</button>
 
 
 
     </div>
-
-    
-
-
-
 </template>
 <script>
 import axios from "axios";
@@ -30,77 +26,67 @@ export default {
             farmlands: []
         };
     },
-    mounted() { 
+    
+    mounted() {
+        let razorPayScript = document.createElement('script')
+        razorPayScript.setAttribute('src', 'https://checkout.razorpay.com/v1/checkout.js')
+        document.head.appendChild(razorPayScript)
         this.fetchData()
     },
     methods: {
-        payment(){
+        async createOrder() {
+            try {
+                const response = await axios.post('http://localhost:8080/api/razor-pay/order', {
+                    amount: 50000,  // amount in the smallest currency unit
+                    currency: "INR",
+                    receipt: "order_rcptid_11"
+                })
+                this.payment(response.id)
+                console.log('response', response)
+            } catch (error) {
+
+            }
+        },
+        async payment(orderId) {
+            // await 
             var options = {
-        key:"rzp_test_MPdJcuMk6vG4v9",
-        key_secret:"0mWj1ntojikDS52B8mkVqLW4",
-        currency:"INR",
-        name:"WEIZEN MART",
-        description:"for test purpose",
-        handler:function(response){
-            console.log(response.razorpay_payment_id);
+                "key": "rzp_test_iJs9lNifWJnygM", // Enter the Key ID generated from the Dashboard
+                "amount": "50000", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+                "currency": "INR",
+                "name": "Acme Corp",
+                "description": "Test Transaction",
+                "image": "https://example.com/your_logo",
+                "order_id": orderId, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+                "handler": function (response) {
+                    alert(response.razorpay_payment_id);
+                    alert(response.razorpay_order_id);
+                    alert(response.razorpay_signature)
+                },
+                "prefill": {
+                    "name": "Gaurav Kumar",
+                    "email": "gaurav.kumar@example.com",
+                    "contact": "9000090000"
+                },
+                "notes": {
+                    "address": "Razorpay Corporate Office"
+                },
+                "theme": {
+                    "color": "#3399cc"
+                }
+            };
+            var pay = new window.Razorpay(options);
+            pay.open();
 
-            fetch("http://localhost:8080/views/checkout", {
-                
-                body:JSON.stringify({
-                  userId:userid._id,
-                  address:{
-                    firstName: userId.firstName,
-                    lastName: userId.lastName,
-                    email: userId.email,
-                    phone: userId.phone,
-                    address:address,
-                    locality:locality,
-                    pincode:pincode,
-                    city:city,
-
-                    
-                  },
-                
-                 
-                
-                })
-              })
-                .then((res) => res.json())
-                .then((data) => {
-                  console.log(data);
-                  if (data.error) {
-                    console.log(data.error);
-                  } 
-                })
-                .catch((err) => {
-                  console.log(err);
-                });
-                //toast.success("Order Placed Successfully")
-    
-            toast.success("Payment successfull")
-            navigate("/products")
         },
-        prefill:{
-            name:user.firstName,
-            email:user.email,
-            contact:user.phone,
-        },
-        notes:{
-            address:"Razorpay Corporate Office"
-        },
-       };
-        var pay = new window.Razorpay(options);
-        pay.open();
-    
-        },
+        
 
         async fetchData() {
-            
+
             await axios
                 .get("http://localhost:8080/api/users/lands/get")
                 .then((response) => {
-                   this.farmlands = response.data
-                    console.log('response',response);
+                    this.farmlands = response.data
+                    console.log('response', response);
 
                     //   const toPath = this.$route.query.to || "/cart";
 
@@ -119,7 +105,11 @@ export default {
                 });
         },
     },
+    loadReactWebsite() {
+      window.location.href = 'https://www.example.com'; // Replace with your React website's URL
+    }
 };
+
 </script>
 <style>
 .galle {
@@ -134,7 +124,7 @@ export default {
 
 div.desco {
     padding: 2px;
-    text-align:left;
+    text-align: left;
     font-weight: 600;
     color: aqua;
 }
