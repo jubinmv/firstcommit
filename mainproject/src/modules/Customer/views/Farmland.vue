@@ -10,7 +10,7 @@
         <div class="desco">Owner Name: Jubin </div>
         <div class="desco">Advance Amount: {{ land.advance }}</div>
         <button class="button is-dark" @click="createOrder()" style="margin-bottom: 5px;  margin-left: 50px">Lease Now</button>
-        <target<button @click="loadReactWebsite">Load React Website</button>
+        <button class="button is-dark" @click="loadReactWebsite" style="margin-bottom: 5px;  margin-left: 50px">Recommended Corp</button>
 
 
 
@@ -34,6 +34,9 @@ export default {
         this.fetchData()
     },
     methods: {
+        loadReactWebsite() {
+      window.open('http://localhost:3001/', '_blank') // Replace with your React website's URL
+    },
         async createOrder() {
             try {
                 const response = await axios.post('http://localhost:8080/api/razor-pay/order', {
@@ -51,7 +54,7 @@ export default {
             // await 
             var options = {
                 "key": "rzp_test_iJs9lNifWJnygM", // Enter the Key ID generated from the Dashboard
-                "amount": "50000", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+                "amount": "1000000",
                 "currency": "INR",
                 "name": "Acme Corp",
                 "description": "Test Transaction",
@@ -105,9 +108,7 @@ export default {
                 });
         },
     },
-    loadReactWebsite() {
-      window.location.href = 'https://www.example.com'; // Replace with your React website's URL
-    }
+   
 };
 
 </script>

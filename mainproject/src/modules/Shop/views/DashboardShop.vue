@@ -2,12 +2,10 @@
   <div class="tile is-ancestor">
     <ShopDashboardCard data="My Listings" />
     <ShopDashboardCard data="Sellers Plan" />
+
+    <ShopDashboardCard data="Sellers Guide" />
   </div>
 
-  <div class="tile is-ancestor">
-    <ShopDashboardCard data="Sellers Guide" />
-    <ShopDashboardCard data="My Wallet" />
-  </div>
 </template>
 
 <script>

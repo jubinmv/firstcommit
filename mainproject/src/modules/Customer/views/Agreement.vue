@@ -1,7 +1,7 @@
 
 <template>
 <div style="text-align: center;color:black; font-weight: 800;"> Lease Agreement<br></div>
-<div class="descc">This agreement is between _________________ (landowner) and _________________,
+<div id="content" class="descc">This agreement is between _________________ (landowner) and _________________,
 (tenant), for the lease of certain parcels of land for the purpose of __________________
 ___________________________ [describe agricultural purpose(s) and operation].<br>
 1.The parcel(s) contained in this agreement are is/described as follows: [parcel location,
@@ -36,9 +36,25 @@ signed:<br>
 _________________________________________date______________________<br>
 ________________________________________ date______________________ <br>
   </div>
-<div style="float:right;"><a href="pdfgen"><button class="button is-dark">Print</button></a></div>
+<div style="float:right;">    <button @click="generatePDF">Generate PDF</button>
+</div>
   
   </template>
+
+<script>
+import html2pdf from "html2pdf.js";
+
+export default {
+  methods: {
+    downloadPDF() {
+      const content = document.getElementById('content');
+      html2pdf()
+        .from(content)
+        .save('page_contents.pdf');
+    }
+  }
+}
+</script>
 <style>
 
 .descc {

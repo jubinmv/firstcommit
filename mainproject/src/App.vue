@@ -26,16 +26,7 @@
         <div class="navbar-end mx-auto">
           <div class="navbar-item">
             <div class="select is-success">
-              <select v-model="selectedCategory">
-                <option selected>languages</option>
-                <option
-                  v-for="item in categories"
-                  v-bind:key="item.id"
-                  @click="getProductsByCategory(item)"
-                >
-                  {{ item.category }}
-                </option>
-              </select>
+             
              
             </div>
 
@@ -223,6 +214,7 @@ export default {
   },
 
   methods: {
+   
     getCategories() {
       axios.get(`/user/shop/product/category`).then((response) => {
         console.log(response);

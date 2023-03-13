@@ -72,6 +72,15 @@
               >Posted Lands</router-link
             >
           </li>
+          <li>
+        <router-link
+          to=""
+          v-bind:class="{
+            'is-active': ''
+          }"
+         > <label @click="feedback" >Feedback </label> </router-link
+        >
+        </li>
           <!-- <li>
             <router-link
               to="/shop/products/delete"
@@ -131,6 +140,9 @@ import axios from 'axios';
 export default {
   
   methods: {
+    feedback() {
+      window.open('http://192.168.1.5:3001/sentiment-analyzer', '_blank') // Replace with your React website's URL
+    },
     disableAccount(){
       axios
       .delete("/user/shop")
