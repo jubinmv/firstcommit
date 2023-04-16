@@ -1,4 +1,4 @@
-# vue-cloudstore
+# vue-Lease_It
 
 ## Project setup
 ```
